@@ -1,5 +1,5 @@
 //
-//  LoginVC.swift
+//  CreateAccountVC.swift
 //  Slack 2.0
 //
 //  Created by Alex Wong on 11/14/17.
@@ -8,12 +8,14 @@
 
 import UIKit
 
-class LoginVC: UIViewController {
+class CreateAccountVC: UIViewController {
     
     // MARK: - Outlets
-
+    
     @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var profileImageView: UIImageView!
     
     // MARK: - View Lifecycle
     
@@ -22,22 +24,19 @@ class LoginVC: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-
+    
     // MARK: - Actions
     
-    @IBAction func dismissLoginVC(_ sender: Any) {
+    @IBAction func dismissCreateAccountVC(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func chooseAvatar(_ sender: Any) {
+    }
+    
+    @IBAction func generateBackgroundColor(_ sender: Any) {
+    }
+    
     @IBAction func createAccount(_ sender: Any) {
-        performSegue(withIdentifier: TO_CREATE_ACCOUNT, sender: nil)
-    }
-    
-    @IBAction func loginUser(_ sender: Any) {
-        
-    }
-    
-    @IBAction func signupUser(_ sender: Any) {
-        
     }
 }

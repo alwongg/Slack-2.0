@@ -11,3 +11,4 @@ import Foundation
 // Segues
 
 let TO_LOGIN = "toLoginVC"
+let TO_CREATE_ACCOUNT = "toCreateAccountVC"
