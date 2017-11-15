@@ -24,4 +24,9 @@ class ChannelVC: UIViewController {
         performSegue(withIdentifier: TO_LOGIN, sender: nil)
     }
     
+    //unwind segue (CreateAccountVC dismiss to ChannelVC)
+    @IBAction func prepareForUnwind(segue: UIStoryboardSegue){
+        
+    }
+    
 }

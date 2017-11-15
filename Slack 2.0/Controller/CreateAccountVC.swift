@@ -28,7 +28,7 @@ class CreateAccountVC: UIViewController {
     // MARK: - Actions
     
     @IBAction func dismissCreateAccountVC(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        performSegue(withIdentifier: UNWIND, sender: nil)
     }
     
     @IBAction func chooseAvatar(_ sender: Any) {
