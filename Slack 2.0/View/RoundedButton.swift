@@ -28,5 +28,5 @@ class RoundedButton: UIButton {
     
     func setupView(){
         self.layer.cornerRadius = cornerRadius
-    }t
+    }
 }
