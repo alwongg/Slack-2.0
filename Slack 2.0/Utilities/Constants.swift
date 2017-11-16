@@ -13,3 +13,9 @@ import Foundation
 let TO_LOGIN = "toLoginVC"
 let TO_CREATE_ACCOUNT = "toCreateAccountVC"
 let UNWIND = "unwindToChannelVC"
+
+// MARK: - User Defaults
+
+let TOKEN_KEY = "token"
+let LOGGED_IN_KEY = "loggedIn"
+let USER_EMAIL = "userEmail"
