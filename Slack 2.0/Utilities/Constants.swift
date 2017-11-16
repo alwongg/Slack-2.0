@@ -8,6 +8,13 @@
 
 import Foundation
 
+typealias CompletionHandler = (_ Success: Bool) -> ()
+
+// MARK: - URL
+
+let BASE_URL = "https://chattychatslack.herokuapp.com/v1/"
+let URL_REGISTER = "\(BASE_URL)account/register"
+
 // MARK: - Segue Constants
 
 let TO_LOGIN = "toLoginVC"
