@@ -22,6 +22,7 @@ let URL_USER_ADD = "\(BASE_URL)user/add"
 let TO_LOGIN = "toLoginVC"
 let TO_CREATE_ACCOUNT = "toCreateAccountVC"
 let UNWIND = "unwindToChannelVC"
+let TO_AVATAR_PICKER = "toAvatarPicker"
 
 // MARK: - User Defaults
 
