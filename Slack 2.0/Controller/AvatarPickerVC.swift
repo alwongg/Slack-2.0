@@ -45,6 +45,24 @@ class AvatarPickerVC: UIViewController, UICollectionViewDelegate, UICollectionVi
         avatarPickerCollectionView.reloadData()
     }
     
+    // MARK: - Size of CollectionView Cells
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        var numberOfColumns: CGFloat = 3
+        
+        //get width of screen size and 320 is the width of the smallest screen size
+        if UIScreen.main.bounds.width > 320 {
+            numberOfColumns = 4
+        }
+        
+        let spaceBetweenCells: CGFloat = 10
+        let padding: CGFloat = 40
+        let cellDimension = ((avatarPickerCollectionView.bounds.width - padding) - (numberOfColumns - 1) * spaceBetweenCells) / numberOfColumns
+        
+        return CGSize(width: cellDimension, height: cellDimension)
+    }
+    
     // MARK: - Collection View Protocol Methods
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
