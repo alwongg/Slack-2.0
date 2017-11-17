@@ -21,6 +21,7 @@ class CreateAccountVC: UIViewController {
     
     var avatarName = "profileDefault"
     var avatarColor = "[0.5, 0.5, 0.5, 1]"
+    var backgroundColor: UIColor?
     
     // MARK: - View Lifecycle
     
@@ -46,6 +47,12 @@ class CreateAccountVC: UIViewController {
     }
     
     @IBAction func generateBackgroundColor(_ sender: Any) {
+        let red = CGFloat(arc4random_uniform(255)) / 255
+        let green = CGFloat(arc4random_uniform(255)) / 255
+        let blue = CGFloat(arc4random_uniform(255)) / 255
+        backgroundColor = UIColor(red: red, green: green, blue: blue, alpha: 1)
+        
+        self.profileImageView.backgroundColor = backgroundColor
     }
     
     @IBAction func createAccount(_ sender: Any) {
