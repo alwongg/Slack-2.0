@@ -15,6 +15,10 @@ class AvatarPickerVC: UIViewController, UICollectionViewDelegate, UICollectionVi
     @IBOutlet weak var avatarPickerCollectionView: UICollectionView!
     @IBOutlet weak var segmentControl: UISegmentedControl!
     
+    // MARK: - Properties
+    
+    var avatarType = AvatarType.dark
+    
     // MARK: - View Lifecycle
     
     override func viewDidLoad() {
@@ -31,6 +35,14 @@ class AvatarPickerVC: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     @IBAction func segmentControlChanged(_ sender: Any) {
+        if segmentControl.selectedSegmentIndex == 0{
+            //dark selected
+            avatarType = .dark
+        } else {
+            avatarType = .light
+        }
+        
+        avatarPickerCollectionView.reloadData()
     }
     
     // MARK: - Collection View Protocol Methods
@@ -45,6 +57,7 @@ class AvatarPickerVC: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = avatarPickerCollectionView.dequeueReusableCell(withReuseIdentifier: "avatarCell", for: indexPath) as? AvatarCollectionViewCell{
+            cell.configureCell(index: indexPath.item, type: avatarType)
             return cell
         }
         
