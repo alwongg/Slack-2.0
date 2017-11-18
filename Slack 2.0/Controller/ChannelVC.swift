@@ -36,13 +36,18 @@ class ChannelVC: UIViewController {
             profileImageView.image = UIImage(named: "menuProfileIcon")
             profileImageView.backgroundColor = UIColor.clear
         }
-        
     }
     
     // MARK: - Actions
 
     @IBAction func loginUser(_ sender: Any) {
-        performSegue(withIdentifier: TO_LOGIN, sender: nil)
+        if AuthService.instance.isLoggedIn{
+            let profileVC = ProfileVC()
+            profileVC.modalPresentationStyle = .custom
+            present(profileVC, animated: true, completion: nil)
+        } else {
+            performSegue(withIdentifier: TO_LOGIN, sender: nil)
+        }
     }
     
     //unwind segue (CreateAccountVC dismiss to ChannelVC)

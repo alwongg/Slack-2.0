@@ -42,7 +42,7 @@ class CreateAccountVC: UIViewController {
         }
     }
     
-    // MARK: - Setup View
+    // MARK: - Update UI
     
     func setupView(){
         
