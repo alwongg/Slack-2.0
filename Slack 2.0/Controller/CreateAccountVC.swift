@@ -90,8 +90,14 @@ class CreateAccountVC: UIViewController {
     
     @IBAction func createAccount(_ sender: Any) {
         
-        spinner.isHidden = false
-        spinner.startAnimating()
+        startSpinner()
+        
+        if usernameTextField.text == "" || emailTextField.text == "" || passwordTextField.text == "" {
+            
+            displayAlert(title: "Missing Information", message: "You must provide both an email and a password")
+            
+            stopSpinner()
+        }
         
         guard let name = usernameTextField.text, usernameTextField.text != ""
             else {return}
@@ -107,8 +113,7 @@ class CreateAccountVC: UIViewController {
                         AuthService.instance.createUser(name: name, email: email, avatarName: self.avatarName, avatarColor: self.avatarColor, completion: { (success) in
                             if success{
                                 
-                                self.spinner.isHidden = true
-                                self.spinner.stopAnimating()
+                                self.stopSpinner()
                                 
                                 self.performSegue(withIdentifier: UNWIND, sender: nil)
                                 
@@ -120,4 +125,32 @@ class CreateAccountVC: UIViewController {
             }
         }
     }
+    
+    func startSpinner(){
+        spinner.isHidden = false
+        spinner.startAnimating()
+    }
+    
+    func stopSpinner(){
+        spinner.isHidden = true
+        spinner.stopAnimating()
+    }
+    
+// MARK: - Display Error Alert
+
+func displayAlert(title: String, message: String){
+    
+    // create alert controller with a title and message as its parameters
+    let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+    
+    // only allow user to tap OK
+    alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+    
+    // present the controller when displayAlert method is called
+    self.present(alertController, animated: true, completion: nil)
+    
+}
+
+
+
 }
