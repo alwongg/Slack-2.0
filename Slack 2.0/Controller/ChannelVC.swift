@@ -8,17 +8,21 @@
 
 import UIKit
 
-class ChannelVC: UIViewController {
+class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     // MARK: - Outlets
     
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var profileImageView: CircleImageView!
+    @IBOutlet weak var tableView: UITableView!
     
     // MARK: - View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.delegate = self
+        tableView.dataSource = self
 
         self.revealViewController().rearViewRevealWidth = self.view.frame.size.width - 60
         
@@ -60,5 +64,25 @@ class ChannelVC: UIViewController {
     //unwind segue (CreateAccountVC dismiss to ChannelVC)
     @IBAction func prepareForUnwind(segue: UIStoryboardSegue){
         
+    }
+    
+    // MARK: - Table View Methods
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return MessageService.instance.channels.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "ChannelCell", for: indexPath) as? ChannelCell{
+            let channel = MessageService.instance.channels[indexPath.row]
+            cell.configureCell(channel: channel)
+            return cell
+        } else {
+            return UITableViewCell()
+        }
     }
 }
