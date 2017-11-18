@@ -29,8 +29,16 @@ class ProfileVC: UIViewController {
     func setupView(){
         userName.text = UserDataService.instance.name
         userEmail.text = UserDataService.instance.email
+        
         profileImageView.image = UIImage(named: UserDataService.instance.avatarName)
         profileImageView.backgroundColor = UserDataService.instance.returnUIColor(components: UserDataService.instance.avatarColor)
+        
+        let closeTouch = UITapGestureRecognizer(target: self, action: #selector(ProfileVC.closeTap(_:)))
+        backgroundView.addGestureRecognizer(closeTouch)
+    }
+    
+    @objc func closeTap(_ recognizer: UITapGestureRecognizer){
+        dismiss(animated: true, completion: nil)
     }
     
     // MARK: - Actions
@@ -40,5 +48,8 @@ class ProfileVC: UIViewController {
     }
     
     @IBAction func logoutUser(_ sender: Any) {
+        UserDataService.instance.logoutUser()
+        NotificationCenter.default.post(name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
+        dismiss(animated: true, completion: nil)
     }
 }
