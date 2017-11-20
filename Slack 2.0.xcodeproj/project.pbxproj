@@ -19,6 +19,7 @@
 		FA7DC72A1FC2C62800CFF4C4 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7DC7261FC2C62700CFF4C4 /* ChatVC.swift */; };
 		FA7DC72C1FC2C84800CFF4C4 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7DC72B1FC2C84800CFF4C4 /* GradientView.swift */; };
 		FA7DC72E1FC2C93100CFF4C4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7DC72D1FC2C93100CFF4C4 /* Constants.swift */; };
+		FA7DC7301FC2D5F600CFF4C4 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7DC72F1FC2D5F600CFF4C4 /* AuthService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		FA7DC7261FC2C62700CFF4C4 /* ChatVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 		FA7DC72B1FC2C84800CFF4C4 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		FA7DC72D1FC2C93100CFF4C4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FA7DC72F1FC2D5F600CFF4C4 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 		FA7DC71E1FC2C2F000CFF4C4 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				FA7DC72F1FC2D5F600CFF4C4 /* AuthService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				FA7DC72A1FC2C62800CFF4C4 /* ChatVC.swift in Sources */,
 				FA7DC7081FC2C27300CFF4C4 /* AppDelegate.swift in Sources */,
 				FA7DC7271FC2C62800CFF4C4 /* ChannelVC.swift in Sources */,
+				FA7DC7301FC2D5F600CFF4C4 /* AuthService.swift in Sources */,
 				FA7DC7281FC2C62800CFF4C4 /* LoginVC.swift in Sources */,
 				FA7DC72C1FC2C84800CFF4C4 /* GradientView.swift in Sources */,
 				FA7DC7291FC2C62800CFF4C4 /* CreateAccountVC.swift in Sources */,

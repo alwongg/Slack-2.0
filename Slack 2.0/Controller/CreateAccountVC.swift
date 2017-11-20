@@ -17,7 +17,6 @@ class CreateAccountVC: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var profileImageView: UIImageView!
     
-    
     // MARK: - Properties
     
     // MARK: - View Lifecycle
@@ -40,6 +39,7 @@ class CreateAccountVC: UIViewController {
     }
     
     @IBAction func generateBackgroundColor(_ sender: Any) {
+        
     }
     
     @IBAction func createAccount(_ sender: Any) {
@@ -61,7 +61,4 @@ class CreateAccountVC: UIViewController {
         self.present(alertController, animated: true, completion: nil)
         
     }
-    
-    
-    
 }

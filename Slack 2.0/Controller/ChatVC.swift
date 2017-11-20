@@ -14,6 +14,8 @@ class ChatVC: UIViewController {
     
     @IBOutlet weak var menuButton: UIButton!
     
+    // MARK: - View Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,6 +27,5 @@ class ChatVC: UIViewController {
         
         //allow tap to dismiss panel function
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
-        
     }
 }

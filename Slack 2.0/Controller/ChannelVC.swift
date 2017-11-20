@@ -29,13 +29,15 @@ class ChannelVC: UIViewController {
     @IBAction func prepareForUnwind(segue: UIStoryboardSegue){}
     
     // MARK: - Actions
+    
+    @IBAction func loginUser(_ sender: Any) {
+        performSegue(withIdentifier: TO_LOGIN, sender: nil)
+    }
 
     @IBAction func addChannel(_ sender: Any) {
 
     }
     
-    @IBAction func loginUser(_ sender: Any) {
-        performSegue(withIdentifier: TO_LOGIN, sender: nil)
-    }
+    
     
 }
