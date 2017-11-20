@@ -16,55 +16,18 @@ class CreateAccountVC: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var profileImageView: UIImageView!
-    @IBOutlet weak var spinner: UIActivityIndicatorView!
+    
     
     // MARK: - Properties
-    
-    var avatarName = "profileDefault"
-    var avatarColor = "[0.5, 0.5, 0.5, 1]"
-    var backgroundColor: UIColor?
     
     // MARK: - View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupView()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        if UserDataService.instance.avatarName != ""{
-            profileImageView.image = UIImage(named: UserDataService.instance.avatarName)
-            avatarName = UserDataService.instance.avatarName
-            
-            if avatarName.contains("light") && backgroundColor == nil{
-                profileImageView.backgroundColor = UIColor.lightGray
-            }
-        }
+        
     }
     
     // MARK: - Update UI
-    
-    func setupView(){
-        
-        //set spinner
-        spinner.isHidden = true
-        
-        //set placeholder text colors
-        usernameTextField.attributedPlaceholder = NSAttributedString(string: "username", attributes: [NSAttributedStringKey.foregroundColor:slackPurplePlaceholder])
-        
-        emailTextField.attributedPlaceholder = NSAttributedString(string: "email", attributes: [NSAttributedStringKey.foregroundColor:slackPurplePlaceholder])
-        
-        passwordTextField.attributedPlaceholder = NSAttributedString(string: "password", attributes: [NSAttributedStringKey.foregroundColor:slackPurplePlaceholder])
-        
-        //dismiss keyboard by tap
-        
-        let tap = UITapGestureRecognizer(target: self, action: #selector(CreateAccountVC.handleTap))
-        view.addGestureRecognizer(tap)
-    }
-    
-    @objc func handleTap(){
-        view.endEditing(true)
-    }
     
     // MARK: - Actions
     
@@ -73,84 +36,32 @@ class CreateAccountVC: UIViewController {
     }
     
     @IBAction func chooseAvatar(_ sender: Any) {
-        performSegue(withIdentifier: TO_AVATAR_PICKER, sender: nil)
+        
     }
     
     @IBAction func generateBackgroundColor(_ sender: Any) {
-        let red = CGFloat(arc4random_uniform(255)) / 255
-        let green = CGFloat(arc4random_uniform(255)) / 255
-        let blue = CGFloat(arc4random_uniform(255)) / 255
-        backgroundColor = UIColor(red: red, green: green, blue: blue, alpha: 1)
-        avatarColor = "[\(red), \(green), \(blue), 1]"
-        //animate
-        UIView.animate(withDuration: 0.2){
-            self.profileImageView.backgroundColor = self.backgroundColor
-        }
     }
     
     @IBAction func createAccount(_ sender: Any) {
         
-        startSpinner()
         
-        if usernameTextField.text == "" || emailTextField.text == "" || passwordTextField.text == "" {
-            
-            displayAlert(title: "Missing Information", message: "You must provide both an email and a password")
-            
-            stopSpinner()
-        }
-        
-        guard let name = usernameTextField.text, usernameTextField.text != ""
-            else {return}
-        guard let email = emailTextField.text, emailTextField.text != ""
-            else {return}
-        guard let password = passwordTextField.text, passwordTextField.text != ""
-            else {return}
-        
-        AuthService.instance.registerUser(email: email, password: password) { (success) in
-            if success{
-                AuthService.instance.loginUser(email: email, password: password, completion: { (success) in
-                    if success{
-                        AuthService.instance.createUser(name: name, email: email, avatarName: self.avatarName, avatarColor: self.avatarColor, completion: { (success) in
-                            if success{
-                                
-                                self.stopSpinner()
-                                
-                                self.performSegue(withIdentifier: UNWIND, sender: nil)
-                                
-                                NotificationCenter.default.post(name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
-                            }
-                        })
-                    }
-                })
-            }
-        }
     }
     
-    func startSpinner(){
-        spinner.isHidden = false
-        spinner.startAnimating()
+    // MARK: - Display Error Alert
+    
+    func displayAlert(title: String, message: String){
+        
+        // create alert controller with a title and message as its parameters
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        // only allow user to tap OK
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        
+        // present the controller when displayAlert method is called
+        self.present(alertController, animated: true, completion: nil)
+        
     }
     
-    func stopSpinner(){
-        spinner.isHidden = true
-        spinner.stopAnimating()
-    }
     
-// MARK: - Display Error Alert
-
-func displayAlert(title: String, message: String){
     
-    // create alert controller with a title and message as its parameters
-    let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-    
-    // only allow user to tap OK
-    alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-    
-    // present the controller when displayAlert method is called
-    self.present(alertController, animated: true, completion: nil)
-    
-}
-
-
-
 }
