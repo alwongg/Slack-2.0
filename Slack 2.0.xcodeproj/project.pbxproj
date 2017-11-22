@@ -20,6 +20,7 @@
 		FA7DC72C1FC2C84800CFF4C4 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7DC72B1FC2C84800CFF4C4 /* GradientView.swift */; };
 		FA7DC72E1FC2C93100CFF4C4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7DC72D1FC2C93100CFF4C4 /* Constants.swift */; };
 		FA7DC7301FC2D5F600CFF4C4 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7DC72F1FC2D5F600CFF4C4 /* AuthService.swift */; };
+		FABAF4F81FC402ED0020619E /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABAF4F71FC402ED0020619E /* RoundedButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		FA7DC72B1FC2C84800CFF4C4 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		FA7DC72D1FC2C93100CFF4C4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FA7DC72F1FC2D5F600CFF4C4 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		FABAF4F71FC402ED0020619E /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				FA7DC72B1FC2C84800CFF4C4 /* GradientView.swift */,
+				FABAF4F71FC402ED0020619E /* RoundedButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA7DC72A1FC2C62800CFF4C4 /* ChatVC.swift in Sources */,
+				FABAF4F81FC402ED0020619E /* RoundedButton.swift in Sources */,
 				FA7DC7081FC2C27300CFF4C4 /* AppDelegate.swift in Sources */,
 				FA7DC7271FC2C62800CFF4C4 /* ChannelVC.swift in Sources */,
 				FA7DC7301FC2D5F600CFF4C4 /* AuthService.swift in Sources */,

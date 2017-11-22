@@ -44,6 +44,20 @@ class CreateAccountVC: UIViewController {
     
     @IBAction func createAccount(_ sender: Any) {
         
+        guard let email = emailTextField.text, emailTextField.text != "" else {return}
+        guard let password = passwordTextField.text, passwordTextField.text != "" else {return}
+        
+        AuthService.instance.registerUser(email: email , password: password) { (success) in
+            if success{
+                AuthService.instance.loginUser(email: email, password: password, completion: { (sucess) in
+                    if success {
+                        print("LOGGED IN USER!!!", AuthService.instance.authToken)
+                    } else {
+                        print("not successful")
+                    }
+                })
+            }
+        }
         
     }
     
