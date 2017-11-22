@@ -14,9 +14,9 @@ typealias CompletionHandler = (_ Success : Bool) -> ()
 
 // MARK: - URL
 
-let BASE_URL = "https://chattyslack.herokuapp.com/v1/"
+let BASE_URL = "https://chattyslack3.herokuapp.com/v1/"
 let URL_REGISTER = "\(BASE_URL)account/register"
-let URL_LOGIN = "(\(BASE_URL)account/login"
+let URL_LOGIN = "\(BASE_URL)account/login"
 
 // MARK: - Headers
 

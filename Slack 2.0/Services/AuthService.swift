@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
 
 class AuthService {
     
@@ -80,14 +81,21 @@ class AuthService {
             if response.result.error == nil {
                 //received a response in the form of JSON so now we need to parse that JSON to get the authToken!
                 //traditional JSON parsing way
-                if let json = response.result.value as? Dictionary<String,Any> {
-                    if let email = json["user"] as? String {
-                        self.userEmail = email
-                    }
-                    if let token = json["token"] as? String {
-                        self.authToken = token
-                    }
-                }
+//                if let json = response.result.value as? Dictionary<String,Any> {
+//                    if let email = json["user"] as? String {
+//                        self.userEmail = email
+//                    }
+//                    if let token = json["token"] as? String {
+//                        self.authToken = token
+//                    }
+//                }
+                
+                //JSON parsing with SwiftyJSON
+                guard let data = response.data else {return}
+                let json = try! JSON(data: data)
+                self.userEmail = json["user"].stringValue
+                self.authToken = json["token"].stringValue
+                
                 //success logging in!
                 self.isLoggedIn = true
                 completion(true)
