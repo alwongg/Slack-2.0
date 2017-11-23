@@ -27,9 +27,17 @@ class ChannelVC: UIViewController {
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        setupUserInfo()
+    }
+    
     // Notification Function
     
     @objc func userDataDidChange(_ notif: Notification){
+        setupUserInfo()
+    }
+    
+    func setupUserInfo(){
         if AuthService.instance.isLoggedIn{
             loginButton.setTitle(UserDataService.instance.name, for: .normal)
             profileImage.image = UIImage(named: UserDataService.instance.avatarName)
@@ -48,13 +56,18 @@ class ChannelVC: UIViewController {
     // MARK: - Actions
     
     @IBAction func loginUser(_ sender: Any) {
-        performSegue(withIdentifier: TO_LOGIN, sender: nil)
+        
+        if AuthService.instance.isLoggedIn{
+            //show profile
+            let profile = ProfileVC()
+            profile.modalPresentationStyle = .custom
+            present(profile, animated: true, completion: nil)
+        } else {
+            performSegue(withIdentifier: TO_LOGIN, sender: nil)
+        }
     }
 
     @IBAction func addChannel(_ sender: Any) {
 
     }
-    
-    
-    
 }

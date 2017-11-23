@@ -251,6 +251,10 @@
                                     </view>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="MEs-bM-hlX">
+                                <rect key="frame" x="169" y="271.66666666666669" width="37" height="37"/>
+                                <color key="color" red="0.2901960784" green="0.30196078430000001" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -263,6 +267,8 @@
                             <constraint firstItem="G08-Cr-3h5" firstAttribute="centerX" secondItem="pLL-7p-9Ih" secondAttribute="centerX" id="SVP-9i-S86"/>
                             <constraint firstItem="GSN-ft-fEb" firstAttribute="centerX" secondItem="pLL-7p-9Ih" secondAttribute="centerX" id="UHX-yj-7qR"/>
                             <constraint firstItem="G08-Cr-3h5" firstAttribute="top" secondItem="I0P-Qs-r5u" secondAttribute="bottom" constant="40" id="hgt-cd-s9b"/>
+                            <constraint firstItem="MEs-bM-hlX" firstAttribute="centerY" secondItem="pLL-7p-9Ih" secondAttribute="centerY" constant="-116" id="iGl-TU-mOc"/>
+                            <constraint firstItem="MEs-bM-hlX" firstAttribute="centerX" secondItem="pLL-7p-9Ih" secondAttribute="centerX" id="nwU-zq-7XI"/>
                             <constraint firstItem="I0P-Qs-r5u" firstAttribute="centerX" secondItem="pLL-7p-9Ih" secondAttribute="centerX" id="vuc-h2-A5G"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0b0-Z9-RYV"/>
@@ -270,6 +276,7 @@
                     <connections>
                         <outlet property="emailTextField" destination="wew-f7-o5L" id="SAQ-lb-JPN"/>
                         <outlet property="passwordTextField" destination="Mag-5J-FxT" id="hiu-hD-3hq"/>
+                        <outlet property="spinner" destination="MEs-bM-hlX" id="5oD-Tx-Nqv"/>
                         <segue destination="Qsv-OG-nX7" kind="show" identifier="toCreateAccountVC" id="VJI-T3-UE1"/>
                     </connections>
                 </viewController>
