@@ -17,6 +17,7 @@ typealias CompletionHandler = (_ Success : Bool) -> ()
 let BASE_URL = "https://chattyslack3.herokuapp.com/v1/"
 let URL_REGISTER = "\(BASE_URL)account/register"
 let URL_LOGIN = "\(BASE_URL)account/login"
+let URL_USER_ADD = "\(BASE_URL)user/add"
 
 // MARK: - Headers
 
@@ -27,11 +28,20 @@ let HEADER = ["Content-Type" : "application/json; charset=utf-8"]
 let TO_LOGIN = "toLoginVC"
 let TO_CREATE_ACCOUNT = "toCreateAccountVC"
 let UNWIND = "unwindToChannel"
+let TO_AVATAR_PICKER = "toAvatarPickerVC"
 
 // MARK: - UserDefaults
 
 let IS_LOGGED_IN = "loggedIn"
 let TOKEN_KEY = "token"
 let USER_EMAIL = "userEmail"
+
+// MARK: - Colors
+
+let PURPLE_TEXT_PLACEHOLDER = #colorLiteral(red: 0.7996886872, green: 0.5119449176, blue: 1, alpha: 0.5)
+
+// MARK: - Notifications
+
+let NOTIF_USER_DATA_DID_CHANGE = Notification.Name("notifUserDataChanged")
 
 
