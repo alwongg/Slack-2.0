@@ -52,5 +52,4 @@ class ProfileVC: UIViewController {
     @IBAction func dismissProfileVC(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
-    
 }

@@ -20,6 +20,7 @@ class UserDataService {
     public private(set) var email = ""
     public private(set) var name = ""
     
+    //set variables with func since cannot publicly set with private(set)
     func setUserData(id: String, avatarColor: String, avatarName: String, email: String, name: String){
         self.id = id
         self.avatarColor = avatarColor
@@ -28,10 +29,12 @@ class UserDataService {
         self.name = name
     }
     
+    //need to set image with function
     func setAvatarName(avatarName: String){
         self.avatarName = avatarName
     }
     
+    //grab color string array from database to update user UI
     func returnUIColor(components: String) -> UIColor {
         let scanner = Scanner(string: components)
         let skipped = CharacterSet(charactersIn: "[], ")
@@ -62,6 +65,7 @@ class UserDataService {
         return newUIColor
     }
     
+    //clear all userdata with logout function
     func logoutUser(){
         id = ""
         avatarName = ""

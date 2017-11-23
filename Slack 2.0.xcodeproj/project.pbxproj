@@ -99,6 +99,21 @@
 			path = XIBs;
 			sourceTree = "<group>";
 		};
+		FA44A8731FC77FD2000F894F /* CollectionView Cell */ = {
+			isa = PBXGroup;
+			children = (
+				FA4B019D1FC58061003C351A /* AvatarCell.swift */,
+			);
+			path = "CollectionView Cell";
+			sourceTree = "<group>";
+		};
+		FA44A8741FC77FE4000F894F /* TableView Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "TableView Cell";
+			sourceTree = "<group>";
+		};
 		FA7DC6FB1FC2C27300CFF4C4 = {
 			isa = PBXGroup;
 			children = (
@@ -170,9 +185,10 @@
 		FA7DC71C1FC2C2E000CFF4C4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FA44A8741FC77FE4000F894F /* TableView Cell */,
+				FA44A8731FC77FD2000F894F /* CollectionView Cell */,
 				FA7DC72B1FC2C84800CFF4C4 /* GradientView.swift */,
 				FABAF4F71FC402ED0020619E /* RoundedButton.swift */,
-				FA4B019D1FC58061003C351A /* AvatarCell.swift */,
 				FA40F1471FC6700E0047ADB8 /* CircleImage.swift */,
 			);
 			path = View;

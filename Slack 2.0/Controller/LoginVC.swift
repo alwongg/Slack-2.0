@@ -65,9 +65,5 @@ class LoginVC: UIViewController {
                 })
             }
         }
-        
-        
-        
     }
-    
 }

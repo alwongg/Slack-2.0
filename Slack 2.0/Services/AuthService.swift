@@ -131,6 +131,8 @@ class AuthService {
         }
     }
     
+    // MARK: - Login by Email
+    
     func findUserByEmail(completion: @escaping CompletionHandler){
         Alamofire.request("\(URL_USER_BY_EMAIL)\(userEmail)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
             if response.result.error == nil {
@@ -143,6 +145,8 @@ class AuthService {
             }
         }
     }
+    
+    // MARK: - Update UI with Data
     
     func setUserInfo(data: Data) {
         

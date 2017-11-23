@@ -9,7 +9,6 @@
 import Foundation
 
 //handle asynchronous web requests using completionHandler
-//typealias -> renaming a type
 typealias CompletionHandler = (_ Success : Bool) -> ()
 
 // MARK: - URL

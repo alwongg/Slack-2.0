@@ -80,7 +80,6 @@ class CreateAccountVC: UIViewController {
         backgroundColor = UIColor(red: r, green: g, blue: b, alpha: 1)
         avatarColor = "[\(r), \(g), \(b), 1]"
         
-        
         //animate
         UIView.animate(withDuration: 0.2){
             self.profileImageView.backgroundColor = self.backgroundColor
