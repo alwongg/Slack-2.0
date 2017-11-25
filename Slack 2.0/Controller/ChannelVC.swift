@@ -28,6 +28,11 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
         self.revealViewController().rearViewRevealWidth = self.view.frame.size.width - 60
         
+        SocketService.instance.getChannel { (success) in
+            if success {
+                self.tableView.reloadData()
+            }
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -96,11 +101,4 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
     }
-    
-    
-    
-    
-    
-    
-    
 }
