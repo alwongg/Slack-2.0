@@ -83,7 +83,6 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Knt-fw-XPX">
                                 <rect key="frame" x="0.0" y="152" width="375" height="511"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="channelCell" id="nKB-wa-ggO" customClass="ChannelCell" customModule="Slack_2_0" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
@@ -602,6 +601,7 @@
                         <viewLayoutGuide key="safeArea" id="dfJ-r3-iNQ"/>
                     </view>
                     <connections>
+                        <outlet property="channelNameLabel" destination="D3T-01-aLO" id="Rmb-ja-PTV"/>
                         <outlet property="menuButton" destination="iTj-px-YsE" id="2PG-9z-wyZ"/>
                     </connections>
                 </viewController>

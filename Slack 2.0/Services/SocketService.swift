@@ -19,9 +19,7 @@ class SocketService: NSObject {
         super.init()
     }
     
-//    var socket = SocketManager(socketURL: URL(string: BASE_URL)!).defaultSocket
-    
-    let socket = SocketManager(socketURL: URL(string: BASE_URL)!, config: [.log(true), .compress]).defaultSocket
+    var socket = SocketManager(socketURL: URL(string: BASE_URL)!).defaultSocket
     
     func establishConnection(){
         socket.connect()
@@ -38,6 +36,7 @@ class SocketService: NSObject {
     
     func getChannel(completion: @escaping CompletionHandler){
         socket.on("channelCreated") { (dataArray, ack) in
+            print("Getting Channels")
             guard let channelName = dataArray[0] as? String else {return}
             guard let channelDescription = dataArray[1] as? String else {return}
             guard let channelId = dataArray[2] as? String else {return}

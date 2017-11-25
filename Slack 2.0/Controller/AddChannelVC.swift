@@ -49,6 +49,7 @@ class AddChannelVC: UIViewController {
         
         SocketService.instance.addChannel(channelName: channelName, channelDescription: channelDescription) { (success) in
             if success {
+                print("Add channel")
                 self.dismiss(animated: true, completion: nil)
             }
         }

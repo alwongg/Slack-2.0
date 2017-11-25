@@ -13,6 +13,7 @@ class ChatVC: UIViewController {
     // MARK: - Outlets
     
     @IBOutlet weak var menuButton: UIButton!
+    @IBOutlet weak var channelNameLabel: UILabel!
     
     // MARK: - View Lifecycle
     
@@ -28,11 +29,40 @@ class ChatVC: UIViewController {
         //allow tap to dismiss panel function
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
         
+        NotificationCenter.default.addObserver(self, selector: #selector(ChatVC.userDataDidChange(_:)), name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ChatVC.channelSelected(_notif:)), name: NOTIF_CHANNELS_SELECTED, object: nil)
+        
         if AuthService.instance.isLoggedIn{
             AuthService.instance.findUserByEmail(completion: { (success) in
                 NotificationCenter.default.post(name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
             })
-            MessageService.instance.findAllChannels { (success) in }
+        }
+    }
+    
+    @objc func channelSelected(_notif: Notification){
+        updateWithChannel()
+    }
+    
+    func updateWithChannel(){
+        let channelName = MessageService.instance.selectedChannel?.channelTitle ?? ""
+        channelNameLabel.text = "#\(channelName)"
+    }
+    
+    @objc func userDataDidChange(_ notif: Notification){
+        if AuthService.instance.isLoggedIn {
+            // get channels
+            onLoginGetMessages()
+        } else {
+            channelNameLabel.text = "Please Log In"
+        }
+        
+    }
+    
+    func onLoginGetMessages(){
+        MessageService.instance.findAllChannels { (success) in
+            if success{
+                //do stuff with channels
+            }
         }
     }
 }

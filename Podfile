@@ -11,6 +11,6 @@ target 'Slack 2.0' do
   
   pod 'Alamofire'
   pod 'SwiftyJSON'
-  pod 'Socket.IO-Client-Swift'
+  pod 'Socket.IO-Client-Swift', '~> 13.0.0'
 
 end
