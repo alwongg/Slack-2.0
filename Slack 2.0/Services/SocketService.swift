@@ -13,29 +13,28 @@ class SocketService: NSObject {
 
     static let instance = SocketService()
     
-    //NSObject therefore must have initializer
-    
     override init(){
         super.init()
     }
     
-    var socket = SocketManager(socketURL: URL(string: BASE_URL)!).defaultSocket
+    let manager = SocketManager(socketURL: URL(string: BASE_URL)!, config: [.log(true) , .compress])
+    
     
     func establishConnection(){
-        socket.connect()
+        manager.defaultSocket.connect()
     }
     
     func closeConnection(){
-        socket.disconnect()
+        manager.defaultSocket.disconnect()
     }
     
     func addChannel(channelName: String, channelDescription: String, completion: @escaping CompletionHandler){
-        socket.emit("newChannel", channelName, channelDescription)
+        manager.defaultSocket.emit("newChannel", channelName, channelDescription)
         completion(true)
     }
     
     func getChannel(completion: @escaping CompletionHandler){
-        socket.on("channelCreated") { (dataArray, ack) in
+        manager.defaultSocket.on("channelCreated") { (dataArray, ack) in
             print("Getting Channels")
             guard let channelName = dataArray[0] as? String else {return}
             guard let channelDescription = dataArray[1] as? String else {return}
