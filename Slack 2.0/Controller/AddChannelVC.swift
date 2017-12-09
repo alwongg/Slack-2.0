@@ -29,8 +29,8 @@ class AddChannelVC: UIViewController {
         let closeTap = UITapGestureRecognizer(target: self, action: #selector(AddChannelVC.closeTap(_:)))
         backgroundView.addGestureRecognizer(closeTap)
         
-        nameTextField.attributedPlaceholder = NSAttributedString(string: "name", attributes: [NSAttributedStringKey.foregroundColor : PURPLE_TEXT_PLACEHOLDER])
-        descriptionTextField.attributedPlaceholder = NSAttributedString(string: "description", attributes: [NSAttributedStringKey.foregroundColor : PURPLE_TEXT_PLACEHOLDER])
+        nameTextField.attributedPlaceholder = NSAttributedString(string: "name", attributes: [NSAttributedStringKey.foregroundColor:PURPLE_TEXT_PLACEHOLDER])
+        descriptionTextField.attributedPlaceholder = NSAttributedString(string: "description", attributes: [NSAttributedStringKey.foregroundColor:PURPLE_TEXT_PLACEHOLDER])
     }
     
     @objc func closeTap(_ recognizer: UITapGestureRecognizer){

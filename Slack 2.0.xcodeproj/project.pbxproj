@@ -231,6 +231,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FA7DC7161FC2C27300CFF4C4 /* Build configuration list for PBXNativeTarget "Slack 2.0" */;
 			buildPhases = (
+				FA57174D1FDCA5BA00120E66 /* ShellScript */,
 				50C0F00BF345698242FFFF82 /* [CP] Check Pods Manifest.lock */,
 				FA7DC7001FC2C27300CFF4C4 /* Sources */,
 				FA7DC7011FC2C27300CFF4C4 /* Frameworks */,
@@ -342,6 +343,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Slack 2.0/Pods-Slack 2.0-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		FA57174D1FDCA5BA00120E66 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
