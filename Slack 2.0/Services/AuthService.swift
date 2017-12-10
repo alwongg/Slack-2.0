@@ -20,7 +20,7 @@ class AuthService {
         get {
             return defaults.bool(forKey: IS_LOGGED_IN)
         }
-        set{
+        set {
             defaults.set(newValue, forKey: IS_LOGGED_IN)
         }
     }
