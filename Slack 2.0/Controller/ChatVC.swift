@@ -14,6 +14,7 @@ class ChatVC: UIViewController {
     
     @IBOutlet weak var menuButton: UIButton!
     @IBOutlet weak var channelNameLabel: UILabel!
+    @IBOutlet weak var messageTextField: UITextField!
     
     // MARK: - View Lifecycle
     
@@ -79,6 +80,12 @@ class ChatVC: UIViewController {
            
         }
     }
+    
+    // MARK: - Actions
+    
+    @IBAction func sendMessage(_ sender: Any) {
+    }
+    
 }
 
 

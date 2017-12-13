@@ -13,7 +13,7 @@ import SwiftyJSON
 class MessageService {
     
     static let instance = MessageService()
-    
+
     var channels = [Channel]()
     var messages = [Message]()
     var selectedChannel : Channel?
@@ -82,7 +82,4 @@ class MessageService {
     func clearMessages(){
         messages.removeAll()
     }
-    
-    
-    
 }
