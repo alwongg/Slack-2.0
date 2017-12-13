@@ -21,6 +21,13 @@ class ChatVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.bindToKeyboard()
+        
+        //dismiss keyboard when tapped
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+        view.addGestureRecognizer(tap)
+        
         //add toggle panel function to menuButton
         menuButton.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
         
@@ -38,6 +45,10 @@ class ChatVC: UIViewController {
                 NotificationCenter.default.post(name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
             })
         }
+    }
+    
+    @objc func handleTap(_ recognizer: UITapGestureRecognizer) {
+        view.endEditing(true)
     }
     
     @objc func channelSelected(_notif: Notification){
