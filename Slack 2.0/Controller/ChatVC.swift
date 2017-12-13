@@ -95,6 +95,18 @@ class ChatVC: UIViewController {
     // MARK: - Actions
     
     @IBAction func sendMessage(_ sender: Any) {
+        
+        if AuthService.instance.isLoggedIn {
+            guard let channelId = MessageService.instance.selectedChannel?.id else { return }
+            guard let message = messageTextField.text else { return }
+            
+            SocketService.instance.addMessage(messageBody: message, userId: UserDataService.instance.id, channelId: channelId, completion: { (success) in
+                if success {
+                    self.messageTextField.text = ""
+                    self.messageTextField.resignFirstResponder()
+                }
+            })
+        }
     }
     
 }
