@@ -688,6 +688,7 @@
                         <outlet property="channelNameLabel" destination="D3T-01-aLO" id="Rmb-ja-PTV"/>
                         <outlet property="menuButton" destination="iTj-px-YsE" id="2PG-9z-wyZ"/>
                         <outlet property="messageTextField" destination="wuv-xs-l7j" id="Hd5-Cp-Kw8"/>
+                        <outlet property="tableView" destination="nOW-6Q-epU" id="aRO-cM-ELt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dzR-EE-8i6" userLabel="First Responder" sceneMemberID="firstResponder"/>
