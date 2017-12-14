@@ -12,15 +12,22 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     // MARK: - Outlets
     
+    @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var menuButton: UIButton!
     @IBOutlet weak var channelNameLabel: UILabel!
     @IBOutlet weak var messageTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     
+    // MARK: - Properties
+    
+    var isTyping = false
+    
     // MARK: - View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        sendButton.isHidden = true
         
         //tableView delegate
         tableView.delegate = self
@@ -86,6 +93,7 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             onLoginGetMessages()
         } else {
             channelNameLabel.text = "Please Log In"
+            tableView.reloadData()
         }
         
     }
@@ -114,6 +122,18 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     // MARK: - Actions
+    
+    @IBAction func messageTextFieldEditing(_ sender: Any) {
+        if messageTextField.text == "" {
+            isTyping = false
+            sendButton.isHidden = true
+        } else {
+            if isTyping == false {
+                sendButton.isHidden = false
+            }
+            isTyping = true
+        }
+    }
     
     @IBAction func sendMessage(_ sender: Any) {
         
