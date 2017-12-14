@@ -26,6 +26,10 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.delegate = self
         tableView.dataSource = self
         
+        //dynamic message box height
+        tableView.estimatedRowHeight = 80
+        tableView.rowHeight = UITableViewAutomaticDimension
+        
         view.bindToKeyboard()
         
         //dismiss keyboard when tapped
