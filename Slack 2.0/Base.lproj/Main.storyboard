@@ -669,10 +669,17 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ex2-T2-HsB">
+                                <rect key="frame" x="8" y="733" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="wuv-xs-l7j" firstAttribute="top" secondItem="nOW-6Q-epU" secondAttribute="bottom" constant="30" id="9mb-WB-Pap"/>
+                            <constraint firstItem="Ex2-T2-HsB" firstAttribute="leading" secondItem="dfJ-r3-iNQ" secondAttribute="leading" constant="8" id="F1h-kZ-hf1"/>
                             <constraint firstItem="nOW-6Q-epU" firstAttribute="top" secondItem="HmP-eG-ITn" secondAttribute="bottom" id="G89-ZX-TIQ"/>
                             <constraint firstItem="dfJ-r3-iNQ" firstAttribute="trailing" secondItem="DSb-Th-YfC" secondAttribute="trailing" constant="8" id="JO2-Mk-ku2"/>
                             <constraint firstItem="wuv-xs-l7j" firstAttribute="leading" secondItem="dfJ-r3-iNQ" secondAttribute="leading" id="Rny-M6-yVk"/>
@@ -684,6 +691,7 @@
                             <constraint firstItem="DSb-Th-YfC" firstAttribute="centerY" secondItem="wuv-xs-l7j" secondAttribute="centerY" id="svG-kV-nCB"/>
                             <constraint firstItem="nOW-6Q-epU" firstAttribute="leading" secondItem="dfJ-r3-iNQ" secondAttribute="leading" id="uej-0e-1PV"/>
                             <constraint firstItem="dfJ-r3-iNQ" firstAttribute="trailing" secondItem="nOW-6Q-epU" secondAttribute="trailing" id="z2u-Ey-Boj"/>
+                            <constraint firstItem="wuv-xs-l7j" firstAttribute="top" secondItem="Ex2-T2-HsB" secondAttribute="bottom" constant="5" id="zeK-F9-yCD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dfJ-r3-iNQ"/>
                     </view>
@@ -693,6 +701,7 @@
                         <outlet property="messageTextField" destination="wuv-xs-l7j" id="Hd5-Cp-Kw8"/>
                         <outlet property="sendButton" destination="DSb-Th-YfC" id="Sar-gL-JOg"/>
                         <outlet property="tableView" destination="nOW-6Q-epU" id="aRO-cM-ELt"/>
+                        <outlet property="userIsTypingLabel" destination="Ex2-T2-HsB" id="KtV-RZ-ULq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dzR-EE-8i6" userLabel="First Responder" sceneMemberID="firstResponder"/>
