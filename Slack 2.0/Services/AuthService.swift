@@ -49,7 +49,6 @@ class AuthService {
         
         let lowerCaseEmail = email.lowercased()
         
-        //body
         let body: [String:Any] = [
             "email" : lowerCaseEmail,
             "password" : password
@@ -71,7 +70,6 @@ class AuthService {
         
         let lowerCaseEmail = email.lowercased()
         
-        //body
         let body: [String:Any] = [
             "email" : lowerCaseEmail,
             "password" : password
