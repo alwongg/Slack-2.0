@@ -34,7 +34,6 @@ class SocketService: NSObject {
     
     func getChannel(completion: @escaping CompletionHandler){
         manager.defaultSocket.on("channelCreated") { (dataArray, ack) in
-            print("Getting Channels")
             guard let channelName = dataArray[0] as? String else {return}
             guard let channelDescription = dataArray[1] as? String else {return}
             guard let channelId = dataArray[2] as? String else {return}
@@ -67,7 +66,6 @@ class SocketService: NSObject {
             let newMessage = Message(message: messageBody, userName: userName, channelId: channelId, userAvatar: userAvatar, userAvatarColor: userAvatarColor, id: id, timeStamp: timeStamp)
             
             completion(newMessage)
-            
         }
     }
     

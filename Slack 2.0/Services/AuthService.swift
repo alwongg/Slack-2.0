@@ -77,7 +77,8 @@ class AuthService {
         
         Alamofire.request(URL_LOGIN, method: .post, parameters: body, encoding: JSONEncoding.default, headers: HEADER).responseJSON { (response) in
             if response.result.error == nil {
-                //received a response in the form of JSON so now we need to parse that JSON to get the authToken!
+                
+                //get AuthToken from JSON return data
                 //traditional JSON parsing way
 //                if let json = response.result.value as? Dictionary<String,Any> {
 //                    if let email = json["user"] as? String {

@@ -66,8 +66,6 @@ class MessageService {
                         self.messages.append(message)
                     }
                 }
-                //-------------------------------------------REVISE//
-                print(self.messages)
                 completion(true)
             } else {
                 debugPrint(response.result.error as Any)

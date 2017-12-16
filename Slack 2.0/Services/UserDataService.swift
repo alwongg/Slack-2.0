@@ -36,6 +36,7 @@ class UserDataService {
     
     //grab color string array from database to update user UI
     func returnUIColor(components: String) -> UIColor {
+        
         let scanner = Scanner(string: components)
         let skipped = CharacterSet(charactersIn: "[], ")
         let comma = CharacterSet(charactersIn: ",")

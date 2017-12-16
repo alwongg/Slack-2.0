@@ -17,8 +17,6 @@ class MessageCell: UITableViewCell {
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var timeStampLabel: UILabel!
     
-    // MARK: - View Lifecycle
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -31,7 +29,6 @@ class MessageCell: UITableViewCell {
         userImage.backgroundColor = UserDataService.instance.returnUIColor(components: message.userAvatarColor)
         
         //timestamp
-        
         guard var isoDate = message.timeStamp else {return}
         var end = isoDate.index(isoDate.endIndex, offsetBy: -5)
         isoDate = isoDate.substring(to: end)

@@ -68,16 +68,6 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             }
         }
         
-//        SocketService.instance.getChatMessage { (success) in
-//            if success {
-//                self.tableView.reloadData()
-//                let endIndex = IndexPath(row: MessageService.instance.messages.count - 1, section: 0)
-//                if MessageService.instance.messages.count > 0 {
-//                    self.tableView.scrollToRow(at: endIndex, at: .bottom, animated: false)
-//                }
-//            }
-//        }
-        
         SocketService.instance.getTypingUsers { (typingUsers) in
             guard let channelId = MessageService.instance.selectedChannel?.id else {return}
             var names = ""
@@ -134,7 +124,6 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             channelNameLabel.text = "Please Log In"
             tableView.reloadData()
         }
-        
     }
     
     func onLoginGetMessages(){
@@ -212,7 +201,6 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return MessageService.instance.messages.count
     }
-    
 }
 
 
