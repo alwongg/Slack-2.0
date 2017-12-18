@@ -29,12 +29,10 @@ class UserDataService {
         self.name = name
     }
     
-    //need to set image with function
     func setAvatarName(avatarName: String){
         self.avatarName = avatarName
     }
     
-    //grab color string array from database to update user UI
     func returnUIColor(components: String) -> UIColor {
         
         let scanner = Scanner(string: components)
@@ -66,7 +64,6 @@ class UserDataService {
         return newUIColor
     }
     
-    //clear all userdata with logout function
     func logoutUser(){
         id = ""
         avatarName = ""
@@ -77,8 +74,6 @@ class UserDataService {
         AuthService.instance.userEmail = ""
         AuthService.instance.authToken = ""
         MessageService.instance.clearChannels()
-        
-        //clear messsages
         MessageService.instance.clearMessages()
     }
 }
