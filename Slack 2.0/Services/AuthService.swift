@@ -78,17 +78,6 @@ class AuthService {
         Alamofire.request(URL_LOGIN, method: .post, parameters: body, encoding: JSONEncoding.default, headers: HEADER).responseJSON { (response) in
             if response.result.error == nil {
                 
-                //get AuthToken from JSON return data
-                //traditional JSON parsing way
-//                if let json = response.result.value as? Dictionary<String,Any> {
-//                    if let email = json["user"] as? String {
-//                        self.userEmail = email
-//                    }
-//                    if let token = json["token"] as? String {
-//                        self.authToken = token
-//                    }
-//                }
-                
                 //JSON parsing with SwiftyJSON
                 guard let data = response.data else {return}
                 let json = try! JSON(data: data)
